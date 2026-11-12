@@ -1,12 +1,14 @@
 module nantucket
 
-go 1.25.0
+go 1.26.0
+
+toolchain go1.26.11
 
 require (
 	github.com/gdamore/tcell/v2 v2.13.10
-	golang.org/x/sys v0.44.0
-	golang.org/x/term v0.37.0
-	golang.org/x/text v0.41.0
+	golang.org/x/sys v0.50.0
+	golang.org/x/term v0.47.0
+	golang.org/x/text v0.43.0
 )
 
 require (

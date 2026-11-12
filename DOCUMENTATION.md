@@ -38,7 +38,7 @@ command-by-command reference with examples, see [COMMANDS.md](COMMANDS.md).
 
 ## 1. Installation
 
-Nantucket needs Go 1.25 or later.
+Nantucket needs Go 1.26 or later.
 
 ```sh
 git clone <repository> nantucket

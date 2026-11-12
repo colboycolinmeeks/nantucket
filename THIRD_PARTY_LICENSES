@@ -6,14 +6,14 @@ contain code from the following projects. Their copyright notices and
 licence terms are reproduced below, as those licences require.
 
 ------------------------------------------------------------------------
-tcell (github.com/gdamore/tcell/v2) v2.13.10
-encoding (github.com/gdamore/encoding) v1.0.1
+tcell (github.com/gdamore/tcell/v2)
+encoding (github.com/gdamore/encoding)
 
 Licensed under the Apache License, Version 2.0. The full licence text is
 the same as Nantucket's own; see the LICENSE file.
 
 ------------------------------------------------------------------------
-go-colorful (github.com/lucasb-eyer/go-colorful) v1.3.0
+go-colorful (github.com/lucasb-eyer/go-colorful)
 
 Copyright (c) 2013 Lucas Beyer
 
@@ -24,7 +24,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ------------------------------------------------------------------------
-uniseg (github.com/rivo/uniseg) v0.4.7
+uniseg (github.com/rivo/uniseg)
 
 MIT License
 
@@ -50,8 +50,8 @@ SOFTWARE.
 
 ------------------------------------------------------------------------
 The Go standard library and runtime (go.dev)
-Go supplementary packages: golang.org/x/sys v0.44.0, golang.org/x/term v0.37.0,
-golang.org/x/text v0.41.0
+Go supplementary packages: golang.org/x/sys, golang.org/x/term,
+golang.org/x/text
 
 Copyright 2009 The Go Authors.
 
