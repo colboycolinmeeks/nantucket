@@ -1,0 +1,11 @@
+
+keys      20000
+ordered .T.      20000
+.T. K000777         16583
+top now A00000          16583
+lowest amt     -50.00
+highest amt      49.00
+.T.     -50.00
+.F.
+persisted .T.    16583
+unique count      20000

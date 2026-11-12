@@ -1,0 +1,25 @@
+Nantucket
+Copyright 2026 Colin Meeks
+
+This product includes software developed by Colin Meeks
+(the Nantucket dBase III / Clipper compatible environment).
+
+Licensed under the Apache License, Version 2.0. See the LICENSE file.
+
+Works derived from Nantucket must keep this NOTICE file, or its
+attribution text, as described in section 4(d) of the Apache License.
+
+------------------------------------------------------------------------
+Third-party software
+
+Nantucket uses the following libraries, under their own licences:
+
+  tcell (github.com/gdamore/tcell)         Apache License 2.0
+  encoding (github.com/gdamore/encoding)   Apache License 2.0
+  go-colorful (github.com/lucasb-eyer/go-colorful)  MIT License
+  uniseg (github.com/rivo/uniseg)          MIT License
+  Go x/sys, x/term, x/text (golang.org/x)  BSD 3-Clause License
+  Go standard library and runtime (go.dev) BSD 3-Clause License
+
+Their copyright notices and full licence texts are in the
+THIRD_PARTY_LICENSES file.

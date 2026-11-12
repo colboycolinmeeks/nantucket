@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nantucket — dBase III and Clipper, reborn in Go</title>
+<meta name="description" content="Nantucket is a dBase III / Clipper compatible environment written in Go: the dot prompt, a full screen editor and debugger, DBF tables with NTX indexes, and .prg programs, with many Harbour extensions.">
+<meta property="og:title" content="Nantucket — dBase III and Clipper, reborn in Go">
+<meta property="og:description" content="The dot prompt is back. Run .prg programs, open DBF tables, and debug xBase code on a modern system.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230000AA'/%3E%3Ctext x='3' y='12' font-family='monospace' font-size='12' fill='%23fff'%3E.%3C/text%3E%3Crect x='8' y='4' width='5' height='9' fill='%23FFFF55'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#top">Nantucket</a>
+    <nav>
+      <a href="#why">Why</a>
+      <a href="#features">Features</a>
+      <a href="#debugger">Debugger</a>
+      <a href="#start">Get started</a>
+      <a class="nav-gh" href="https://github.com/colboycolinmeeks/nantucket">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="badge">Version 0.2 · Beta</p>
+      <h1>The dot prompt is back.</h1>
+      <p class="lead">Nantucket is a dBase III and Clipper compatible environment written in Go, with many Harbour and xHarbour extensions. Open your DBF tables, run your <code>.prg</code> programs, and write new ones, on a modern system.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://github.com/colboycolinmeeks/nantucket">View on GitHub</a>
+        <a class="btn" href="#start">Get started</a>
+      </div>
+    </div>
+    <div class="screen" role="img" aria-label="The Nantucket dot prompt, listing a customer table">
+      <div class="screen-body">
+<pre><span class="y">Nantucket 0.2</span> - dBase III / Clipper compatible environment
+
+. USE customer INDEX state
+. LIST name, state, balance FOR balance &gt; 100
+Record#  name          state  balance
+      1  Abbott        MA      250.00
+      4  Delgado       ME      180.50
+      7  Fitzgerald    NH      412.75
+. SUM balance TO nDue FOR balance &gt; 100
+. ? "Total due:", nDue
+Total due:     843.25
+. <span class="cursor">_</span></pre>
+      </div>
+      <div class="screen-status">CUSTOMER  Rec 7/9  Order: STATE   ~/accounts   14:32</div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="band">
+  <div class="wrap prose">
+    <h2>Why Nantucket?</h2>
+    <p>I first used dBase at version II, on CP/M machines. Over my career I moved on to dBase III Plus, then Clipper, and later Harbour, or more specifically xHarbour. As technology advanced and more powerful systems and software came to the fore, xBase was all but forgotten.</p>
+    <p>I still often need to open DBF files. Over the years I've had to hunt for different ways of doing it, and none of them was as easy as dBase. With the arrival of AI-assisted development, I decided to write something in Go that gives a user interface very close to the original dBase.</p>
+    <p>The bigger picture goes further than DBF files: working with SQLite and other SQL databases using the xBase commands that many people still know well, and compiling programs into standalone executables.</p>
+    <p class="signoff"><a href="https://colinmeeks.com">Colin Meeks</a></p>
+  </div>
+</section>
+
+<section id="features" class="wrap">
+  <h2>What's in the box</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>The language you know</h3>
+      <p>Clipper 5 and Harbour level: <code>LOCAL</code>, <code>STATIC</code>, <code>PRIVATE</code> and <code>PUBLIC</code> variables, code blocks, arrays, macros, <code>BEGIN SEQUENCE</code>, and xHarbour's <code>FOR EACH</code>, <code>SWITCH</code>, <code>TRY/CATCH</code> and hashes. The full Clipper preprocessor, with every dBase command defined in <code>std.ch</code>.</p>
+    </article>
+    <article class="card">
+      <h3>DBF and NTX</h3>
+      <p>dBase III/IV and Clipper tables with DBT and FPT memos, and Clipper NTX indexes. <code>USE</code>, <code>SEEK</code>, <code>REPLACE</code>, <code>SET RELATION</code>, <code>SORT</code>, <code>TOTAL</code>, <code>COPY TO</code>, 250 work areas, and shared tables with real record and file locks.</p>
+    </article>
+    <article class="card">
+      <h3>Full screen, as it was</h3>
+      <p><code>@…SAY…GET</code> with <code>PICTURE</code>, <code>VALID</code> and <code>READ</code>; menus, <code>Alert()</code>, <code>AChoice()</code>; <code>BROWSE</code>, <code>EDIT</code>, and <code>CREATE</code> to design tables. Movable windows with the mouse, a status bar, and colour themes drawn in the classic VGA palette.</p>
+    </article>
+    <article class="card">
+      <h3>Reports and labels</h3>
+      <p><code>REPORT FORM</code> and <code>LABEL FORM</code> print dBase and Clipper <code>.FRM</code> and <code>.LBL</code> files, and full screen designers (<code>CREATE REPORT</code>, <code>CREATE LABEL</code>) make new ones.</p>
+    </article>
+    <article class="card">
+      <h3>An editor that compiles</h3>
+      <p><code>MODIFY COMMAND</code> opens a full screen editor with syntax highlighting, undo and WordStar blocks. Saving compiles your program, and an error keeps you on the faulty line.</p>
+    </article>
+    <article class="card">
+      <h3>Tests and packaging</h3>
+      <p><code>nantucket test</code> runs <code>*_test.prg</code> files with <code>ASSERT</code> and expected output. <code>nantucket build</code> packages a program as a single executable that runs without Nantucket installed.</p>
+    </article>
+  </div>
+  <p class="more">Plus about 300 library functions for strings, numbers, dates, arrays, hashes and files. <a href="https://github.com/colboycolinmeeks/nantucket/blob/main/COMMANDS.md">See every command</a>.</p>
+</section>
+
+<section id="debugger" class="band">
+  <div class="wrap split">
+    <div class="prose">
+      <h2>A debugger worth opening</h2>
+      <p>Press <kbd>Alt</kbd>+<kbd>D</kbd> while a program runs, call <code>AltD()</code>, or start with <code>nantucket -debug</code>. You see the source at the current line, the call stack, and every variable, <code>LOCAL</code>s included.</p>
+      <ul class="ticks">
+        <li>Step into, over and out; run to the cursor</li>
+        <li>Breakpoints on lines and procedures, with conditions and hit counts</li>
+        <li>Logpoints that log a message without stopping</li>
+        <li>Watchpoints that stop when a variable changes</li>
+        <li>Data breakpoints that stop when a table field changes, in any record</li>
+        <li>Evaluate expressions and change values, <code>LOCAL</code>s too</li>
+      </ul>
+    </div>
+    <div class="screen screen-small" role="img" aria-label="The Nantucket debugger stopped at a data breakpoint">
+      <div class="screen-title">Debugger  MAIN  upd.prg(3)  Data breakpoint</div>
+      <div class="screen-body">
+<pre>     2     USE cust
+ <span class="hl">►   3     REPLACE ALL bal WITH bal * nRate</span>
+ ●   4     GO 2
+     5     cust-&gt;name := "Zed"
+─ Variables ─────────────┬─ Call stack ─
+ ◉ nCount = 1            │ MAIN(3)
+ NRATE    LOCAL   2      │
+ NCOUNT   LOCAL   1      │
+&gt; CUST-&gt;BAL, record 2, 50.00 to 100.00</pre>
+      </div>
+      <div class="screen-status">F5 Go  F8 Step  F10 Over  F9 Break  F3 Log</div>
+    </div>
+  </div>
+</section>
+
+<section id="start" class="wrap">
+  <h2>Get started</h2>
+  <p>Nantucket is written in Go. Clone the repository and build it:</p>
+<pre class="code"><code>git clone https://github.com/colboycolinmeeks/nantucket
+cd nantucket
+make build              # or: go build -o nantucket ./cmd/nantucket
+
+./nantucket             # the dot prompt
+./nantucket myprog      # run myprog.prg
+./nantucket examples/demo   # a guided tour</code></pre>
+  <p>Building needs Go 1.25 or later. The <a href="https://github.com/colboycolinmeeks/nantucket/blob/main/DOCUMENTATION.md">documentation</a> covers the language, the commands, the editor and the debugger.</p>
+</section>
+
+<section class="wrap status">
+  <div class="note">
+    <h2>Beta software</h2>
+    <p>This is version 0.2, an early release. Much is still to be implemented, and some of what is there may not yet work correctly. Keep backups of any data you use it with. So far it has been built and tested on Linux (Fedora); Windows and macOS builds can be cross-compiled but haven't been tried yet. Bug reports and suggestions are very welcome on <a href="https://github.com/colboycolinmeeks/nantucket/issues">GitHub</a>.</p>
+  </div>
+  <div class="note">
+    <h2>Coming next</h2>
+    <ul>
+      <li>Reading FoxPro and Harbour CDX and IDX indexes</li>
+      <li>SQL databases, SQLite first, through the xBase commands</li>
+      <li>Testing on Windows and macOS</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band name">
+  <div class="wrap prose">
+    <h2>About the name</h2>
+    <p>Clipper, the dBase compiler so many of us built our careers on, was created by the Nantucket Corporation, founded in 1984 by Barry ReBell and Brian Russell. Its releases were named after the seasons, such as Summer '87, and are still remembered fondly. Naming this project Nantucket is a nod to the people who created Clipper, and to everything it made possible for xBase developers.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="statusbar">
+  <span class="sb-app">Nantucket</span>
+  <span class="sb-copy">© 2026 <a href="https://colinmeeks.com">Colin Meeks</a></span>
+  <span class="sb-lic"><span class="sb-long">Apache License 2.0</span><span class="sb-short">Apache 2.0</span></span>
+  <span class="sb-gh"><a href="https://github.com/colboycolinmeeks/nantucket"><span class="sb-long">github.com/colboycolinmeeks/nantucket</span><span class="sb-short">GitHub</span></a></span>
+</footer>
+
+</body>
+</html>

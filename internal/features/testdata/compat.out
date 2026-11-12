@@ -1,0 +1,32 @@
+
+-- BEGIN SEQUENCE WITH
+recovered: Argument error
+substituted:         42
+-- macro calls
+ABC DEF GHI
+-- macro-built names
+1. Add 2. Edit 
+dot
+-- memo type
+M M C M
+M
+-- SET MEMOWIDTH
+The quick brown fox
+jumps over the lazy
+dog
+Record# NAME  NOTES
+      1 one   The quick brown fox
+              jumps over the lazy
+              dog
+-- SET MARGIN and PRow()
+         2         10
+||       row two
+-- SET TYPEAHEAD
+abc
+-- SELECT 0 and DELIMITED WITH TAB / PIPE
+         1
+"a, b"<tab>7
+
+"a, b"|7
+
+         1 a, b      7

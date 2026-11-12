@@ -1,0 +1,14 @@
+# Copyright 2026 Colin Meeks
+# SPDX-License-Identifier: Apache-2.0
+
+# Weekly pull requests for newer GitHub Actions and Go modules.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: gomod
+    directory: /
+    schedule:
+      interval: weekly

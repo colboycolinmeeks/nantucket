@@ -1,0 +1,48 @@
+
+         4          7
+Record# NAME            CITY       AGE BAL       JOINED   ACTIVE NOTES
+      1 Smith           London      42   1234.50 01/02/20 .T.    memo
+      2 Jones           Paris       31     99.95   /  /   .F.    Memo
+      3 Adams           London      57      0.00   /  /   .F.    memo
+      4 Brown           Berlin      25    500.00   /  /   .F.    memo
+Record# NAME            AGE
+      1 Smith            42
+      3 Adams            57
+Jones           A long memo text
+Record# NAME            CITY       AGE BAL       JOINED   ACTIVE NOTES
+      2 Jones           Paris       31     99.95   /  /   .F.    Memo
+Record# NAME
+      3 Adams
+      4 Brown
+      2 Jones
+      1 Smith
+.T.          2 Jones          
+.F. .T.
+Record# NAME            AGE
+      4 Brown            25
+      2 Jones            31
+      1 Smith            42
+      3 Adams            57
+Brown          
+count          3
+sums       1834.45        155
+avg         38.75
+.T. Brown          
+Record# NAME
+      3 Adams
+      2 Jones
+      1 Smith
+         3
+Record# NAME            BAL
+      3 Adams                0.00
+      2 Jones              199.90
+      1 Smith             2469.00
+Record# NAME            CITY       AGE BAL       JOINED   ACTIVE NOTES
+      1 Adams           London      57      0.00   /  /   .F.    memo
+      2 Smith           London      42   2469.00 01/02/20 .T.    memo
+Record# NAME            AGE
+      3 Adams            57
+      1 Smith            42
+CUST          1
+C2 Adams          
+CUST Smith          
