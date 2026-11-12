@@ -250,7 +250,7 @@ make run        # build and start the dot prompt
 make demo       # build and run the guided tour (examples/demo)
 make example    # build and run examples/contacts
 make dist       # release archive (binary, LICENSE, NOTICE, docs, examples)
-make dist-all   # release archives for Linux, macOS and Windows
+make dist-all   # release archives for Linux, macOS and Windows (.zip), and SHA256SUMS
 make install    # go install into $GOBIN
 make clean      # remove build outputs
 make help       # list targets
