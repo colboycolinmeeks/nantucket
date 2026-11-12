@@ -71,8 +71,8 @@ go build -o nantucket ./cmd/nantucket
 | `make run` | Build and start the dot prompt |
 | `make demo` | Build and run the guided tour, `examples/demo.prg` |
 | `make example` | Build and run `examples/contacts.prg` |
-| `make dist` | Build a release archive in `dist/` with the binary, `LICENSE`, `NOTICE`, docs and examples (set `GOOS`/`GOARCH` to cross-compile) |
-| `make dist-all` | Release archives for Linux, macOS and Windows |
+| `make dist` | Build a release archive in `dist/` with the binary, `LICENSE`, `NOTICE`, `THIRD_PARTY_LICENSES`, docs and examples: a `.zip` for Windows, a `.tar.gz` otherwise (set `GOOS`/`GOARCH` to cross-compile; needs `zip` for Windows) |
+| `make dist-all` | Release archives for Linux, macOS and Windows, and `SHA256SUMS` |
 | `make install` | Install the binary with `go install` |
 | `make clean` | Remove build outputs and the test cache |
 | `make help` | List the targets |

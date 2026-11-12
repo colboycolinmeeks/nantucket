@@ -10,6 +10,9 @@ GOOS    ?= $(shell $(GO) env GOOS)
 GOARCH  ?= $(shell $(GO) env GOARCH)
 DIST    := dist/$(BINARY)-$(VERSION)-$(GOOS)-$(GOARCH)
 EXE     := $(if $(filter windows,$(GOOS)),.exe,)
+# Windows users expect a .zip; everyone else gets a .tar.gz.
+ARCHIVE_EXT := $(if $(filter windows,$(GOOS)),.zip,.tar.gz)
+ARCHIVE     := $(if $(filter windows,$(GOOS)),zip -q -r -X,tar -czf)
 
 .DEFAULT_GOAL := all
 
@@ -65,19 +68,22 @@ example: build ## Build and run the contacts example
 install: ## Install into GOBIN (or GOPATH/bin)
 	$(GO) install $(GOFLAGS) -ldflags '$(LDFLAGS)' $(PKG)
 
-dist: ## Build a release archive with LICENSE, NOTICE and THIRD_PARTY_LICENSES (GOOS/GOARCH to cross-compile)
-	rm -rf $(DIST) $(DIST).tar.gz
+dist: ## Build a release archive with LICENSE, NOTICE and THIRD_PARTY_LICENSES (GOOS/GOARCH to cross-compile; .zip for Windows)
+	rm -rf $(DIST) $(DIST).tar.gz $(DIST).zip
 	mkdir -p $(DIST)/examples
 	GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=0 $(GO) build $(GOFLAGS) -ldflags '$(LDFLAGS)' -o $(DIST)/$(BINARY)$(EXE) $(PKG)
 	cp LICENSE NOTICE THIRD_PARTY_LICENSES README.md WHATSNEW.md COMMANDS.md DOCUMENTATION.md $(DIST)/
 	cp examples/*.prg $(DIST)/examples/
-	tar -C dist -czf $(DIST).tar.gz $(notdir $(DIST))
-	@echo "Built $(DIST).tar.gz"
+	cd dist && $(ARCHIVE) $(notdir $(DIST))$(ARCHIVE_EXT) $(notdir $(DIST))
+	@echo "Built $(DIST)$(ARCHIVE_EXT)"
 
-dist-all: ## Build release archives for Linux, macOS and Windows
+dist-all: ## Build release archives for Linux, macOS and Windows, with SHA256SUMS
+	rm -f dist/SHA256SUMS
 	@for p in linux/amd64 linux/arm64 darwin/amd64 darwin/arm64 windows/amd64; do \
 		$(MAKE) --no-print-directory dist GOOS=$${p%/*} GOARCH=$${p#*/} || exit 1; \
 	done
+	cd dist && sha256sum $(BINARY)-$(VERSION)-*.tar.gz $(BINARY)-$(VERSION)-*.zip > SHA256SUMS
+	@echo "Built dist/SHA256SUMS"
 
 clean: ## Remove build outputs
 	rm -rf $(BINARY) coverage.out coverage.html dist
