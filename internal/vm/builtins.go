@@ -1104,4 +1104,4 @@ func (vm *VM) typeOf(expr string) (t string) {
 	return v.TypeChar()
 }
 
-const Version = "0.2"
+const Version = "0.3"

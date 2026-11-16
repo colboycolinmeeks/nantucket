@@ -1,5 +1,13 @@
 # What's New in Nantucket
 
+## 0.3
+
+- Fixed: on Windows, every key press was read two or more times. Nantucket
+  now reads the keyboard through the Windows console directly, which ignores
+  key releases.
+- Release archives for Windows are now .zip files, and each release comes
+  with a SHA256SUMS file for checking downloads.
+
 ## 0.2
 
 - New default colours: white text on blue, with GETs in white on green.

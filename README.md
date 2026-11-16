@@ -6,7 +6,7 @@ full-screen **MODIFY COMMAND** editor, and runs `.prg` programs that use
 DBF tables with NTX indexes.
 
 > [!WARNING]
-> **Beta software.** This is version 0.2, an early release. Much is still
+> **Beta software.** This is version 0.3, an early release. Much is still
 > to be implemented, and some of what is there may not yet work correctly,
 > so please treat it as a beta. Keep backups of any data you use it with.
 > See [Not done yet](#not-done-yet) for known gaps, and

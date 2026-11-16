@@ -167,7 +167,7 @@ func attrOf(st tcell.Style) Attr {
 }
 
 func NewScreen() (*Screen, error) {
-	s, err := tcell.NewScreen()
+	s, err := newTcellScreen()
 	if err != nil {
 		return nil, err
 	}

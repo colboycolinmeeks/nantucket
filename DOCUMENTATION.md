@@ -396,7 +396,7 @@ and a Code window shows the xBase behind it. It works on a table called
 Running `nantucket` with no program starts the dot prompt:
 
 ```
-Nantucket 0.2  -  dBase III / Clipper compatible
+Nantucket 0.3  -  dBase III / Clipper compatible
 Type HELP for commands, VERSION FULL for what's new, QUIT to exit.
 . USE customer
 . LIST name, city FOR state = "MA"
@@ -1913,7 +1913,7 @@ Functions starting with `hb_` are Harbour-compatible extensions.
 |---|---|
 | `GetEnv(cName)` / `GetE(cName)` / `hb_GetEnv(cName)` | Environment variable |
 | `OS()` | Operating system name |
-| `Version()` | `"Nantucket 0.2"` |
+| `Version()` | `"Nantucket 0.3"` |
 | `hb_Compiler()` | Go version used to build Nantucket |
 | `NetName()` | Host name |
 | `hb_Shell(cCmd)` | Run a shell command |
