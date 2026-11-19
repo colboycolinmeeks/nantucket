@@ -7,7 +7,7 @@ toolchain go1.26.11
 require (
 	github.com/gdamore/tcell/v2 v2.13.10
 	golang.org/x/sys v0.50.0
-	golang.org/x/term v0.47.0
+	golang.org/x/term v0.48.0
 	golang.org/x/text v0.43.0
 )
 
